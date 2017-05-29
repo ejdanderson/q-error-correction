@@ -97,12 +97,9 @@ def classical_a(error_prob):
 
 	noflip_prob = 1 - error_prob
 
-
-
-
 	# Case with no bit flips
-	set_0.add((np.binary_repr(np.argmax(case_0), 3), error_prob**3))
-	set_1.add((np.binary_repr(np.argmax(case_1), 3), error_prob**3))
+	set_0.add((np.binary_repr(np.argmax(case_0), 3), np.power(error_prob,3)))
+	set_1.add((np.binary_repr(np.argmax(case_1), 3), np.power(error_prob,3)))
 	for error_op in error_ops :
 		result_0 = np.matmul(error_op, case_0)
 		result_1 = np.matmul(error_op, case_1)
@@ -155,8 +152,8 @@ def classical_b(error_prob):
 	noflip_prob = 1 - error_prob
 
 	# Case with no bit flips
-	set_0.add((np.binary_repr(np.argmax(case_0), 3), error_prob**3))
-	set_1.add((np.binary_repr(np.argmax(case_1), 3), error_prob**3))
+	set_0.add((np.binary_repr(np.argmax(case_0), 3), np.power(error_prob,3)))
+	set_1.add((np.binary_repr(np.argmax(case_1), 3), np.power(error_prob,3)))
 
 	for L in range(1, len(error_ops)+1):
 		# Generate all possible cases
